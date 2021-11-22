@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const morgan = require('morgan');
 require('dotenv').config({ path: "./.env" })
 
 app.set('port', process.env.PORT || 4000)
@@ -32,10 +31,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.set('trust proxy', true);
-
-
-// middleware 
-app.use(morgan('dev'));
 
 
 //routes
