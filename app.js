@@ -7,6 +7,8 @@ require('dotenv').config({ path: "./.env" })
 
 app.set('port', process.env.PORT || 4000)
 
+//importing routes
+const auth = require('./src/Routes/auth')
 
 //settings
 const config = {
@@ -34,6 +36,10 @@ app.set('trust proxy', true);
 
 // middleware 
 app.use(morgan('dev'));
+
+
+//routes
+app.use('/', auth)
 
 // starting the server
 app.listen( app.get('port'), () => {
